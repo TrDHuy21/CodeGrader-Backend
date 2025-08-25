@@ -61,12 +61,10 @@ services:
     networks:
     - app-network
     restart: unless-stopped
-    
+
   problemservice:
-    container_name: CodeGrader-problemservice
-    build: 
-      context: ./services/CodeGrader-ProblemService/ProblemManagementService
-      dockerfile: ../../../dockerfiles/CodeGrader-ProblemService.dockerfile
+    container_name: CodeGrader-ProblemService
+    image: trdhuy21/codegrader-infrastructure-problemservice:latest
     ports:
     - "${CODEGRADER_PROBLEMSERVICE}:8080"
     environment:
