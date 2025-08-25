@@ -20,20 +20,6 @@ services:
       retries: 5
       start_period: 30s
 
-  huytest:
-    container_name: CodeGrader-HuyTest
-    image: trdhuy21/codegrader-infrastructure-huytest:latest
-    ports:
-    - "${CODEGRADER_HUYTEST}:8080"
-    environment:
-    - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=${DB_HUYTEST_NAME};User Id=sa;Password=${SA_PASSWORD};TrustServerCertificate=true;
-    - ASPNETCORE_ENVIRONMENT=Development
-    depends_on:
-      - sqlserver
-    networks:
-    - app-network
-    restart: unless-stopped
-
   userservice:
     container_name: CodeGrader-userservice
     image: trdhuy21/codegrader-infrastructure-userservice:latest
