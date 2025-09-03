@@ -63,6 +63,22 @@ services:
     - app-network
     restart: unless-stopped
 
+  problembookmarkservice:
+    container_name: CodeGrader-problembookmarkservice
+    image: trdhuy21/codegrader-infrastructure-problembookmarkservice:latest
+    ports:
+    - "${CODEGRADER_PROBLEMBOOKMARKERVICE}:8080"
+    environment:
+    - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=${DB_PROBLEMBOOKMARKSERVICE_NAME};User Id=sa;Password=${SA_PASSWORD};TrustServerCertificate=true;
+    - ASPNETCORE_ENVIRONMENT=Development
+    - ExternalService__BaseUrl=${APIGATEWAY_URL}
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+    networks:
+    - app-network
+    restart: unless-stopped
+
   apigateway:
     container_name: CodeGrader-ApiGateway
     image: trdhuy21/codegrader-infrastructure-apigateway:latest
