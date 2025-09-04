@@ -79,6 +79,18 @@ services:
     - app-network
     restart: unless-stopped
 
+  aigraderservice:
+    container_name: CodeGrader-AIGrader
+    image: trdhuy21/codegrader-infrastructure-aigraderservice:latest
+    ports:
+    - "${CODEGRADER_AICODEGRADER}:8080"
+    environment:
+    - ASPNETCORE_ENVIRONMENT=Development
+    - Gemini__ApiKey=${Gemini__ApiKey}
+    networks:
+    - app-network
+    restart: unless-stopped
+
   apigateway:
     container_name: CodeGrader-ApiGateway
     image: trdhuy21/codegrader-infrastructure-apigateway:latest
