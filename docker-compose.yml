@@ -72,6 +72,9 @@ services:
     - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=${DB_PROBLEMBOOKMARKSERVICE_NAME};User Id=sa;Password=${SA_PASSWORD};TrustServerCertificate=true;
     - ASPNETCORE_ENVIRONMENT=Development
     - ExternalService__BaseUrl=${APIGATEWAY_URL}
+    - JWT__Key=${JWT__Key}
+    - JWT__Issuer=${JWT__Issuer}
+    - JWT__Audience=${JWT__Audience}
     depends_on:
       sqlserver:
         condition: service_healthy
