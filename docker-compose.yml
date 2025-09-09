@@ -56,6 +56,9 @@ services:
     environment:
     - ConnectionStrings__PMConnection=Server=sqlserver,1433;Database=${DB_PROBLEMSERVICE_NAME};User Id=sa;Password=${SA_PASSWORD};TrustServerCertificate=true;
     - ASPNETCORE_ENVIRONMENT=Development
+    - JWT__Key=${JWT__Key}
+    - JWT__Issuer=${JWT__Issuer}
+    - JWT__Audience=${JWT__Audience}
     depends_on:
       sqlserver:
         condition: service_healthy
