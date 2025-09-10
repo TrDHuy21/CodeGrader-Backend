@@ -119,7 +119,7 @@ If you see the Swagger documentation, **congratulations! 🎉** Your setup is co
 
 - 📚 **Check logs**: `docker-compose logs service-name`
 - 🐛 **Report issues**: Create an issue on GitHub
-- 💬 **Contact**: [your-email@example.com]
+- 💬 **Contact**: [trdhuy21@example.com]
 
 ---
 
