@@ -93,6 +93,10 @@ services:
     environment:
     - ASPNETCORE_ENVIRONMENT=Development
     - Gemini__ApiKey=${Gemini__ApiKey}
+    - ExternalService__BaseUrl=${APIGATEWAY_URL}
+    - JWT__Key=${JWT__Key}
+    - JWT__Issuer=${JWT__Issuer}
+    - JWT__Audience=${JWT__Audience}
     networks:
     - app-network
     restart: unless-stopped
